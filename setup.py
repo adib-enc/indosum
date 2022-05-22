@@ -13,7 +13,7 @@ with open("README.rst") as readme:
 
 dependencies = [
     "sacred",
-    "https://github.com/tagucci/pythonrouge"
+    # "https://github.com/tagucci/pythonrouge" # error, use pip install git+ instead
 ]
 
 if VERSION_SUFFIX == "3.4":  # lxml 4.4.0 dropped support for Python 3.4
