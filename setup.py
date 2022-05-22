@@ -20,7 +20,7 @@ if VERSION_SUFFIX == "3.4":  # lxml 4.4.0 dropped support for Python 3.4
     dependencies.append("lxml<4.4.0")
 
 setup(
-    name="sumy",
+    name="indosum",
     version="0.10.0",
     description="Module for automatic summarization of text documents",
     long_description=long_description,
