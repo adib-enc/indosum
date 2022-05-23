@@ -1,7 +1,7 @@
 import abc
 import typing
 
-from data import Document
+from .data import Document
 
 
 class AbstractSummarizer(metaclass=abc.ABCMeta):

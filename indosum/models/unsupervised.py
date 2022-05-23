@@ -21,8 +21,8 @@ import math
 import networkx as nx
 import numpy as np
 
-from data import Document, Sentence, Word
-from models import AbstractSummarizer
+from .data import Document, Sentence, Word
+from . import AbstractSummarizer
 
 
 class Lead(AbstractSummarizer):
@@ -311,6 +311,8 @@ class TextRank(AbstractSummarizer):
         tol (float): Tolerance to test for convergence in running the PageRank algorithm.
         max_iter (int): Maximum number of iterations for the PageRank algorithm.
     """
+    G = None
+
     def __init__(self,
                  damping_factor: float = 0.85,
                  tol: float = 1e-6,
@@ -333,6 +335,7 @@ class TextRank(AbstractSummarizer):
         """
         size = min(size, len(doc.sentences))
         G = self._build_graph(doc.sentences)
+        self.G = G
         ranks = nx.pagerank(G, alpha=self.damping_factor, tol=self.tol, max_iter=self.max_iter)
 
         summary = sorted(ranks.keys(), key=lambda k: ranks[k], reverse=True)[:size]
